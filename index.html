@@ -13,15 +13,20 @@
 
 <div class="app">
 <header>
-    <div class="avatar"><i class="fas fa-brain"></i></div>
-    <div>
-        <b>DSA Instructor AI</b>
-        <small>Ask anything about DSA</small>
+    <div style="display:flex;gap:10px;align-items:center;">
+        <div class="avatar"><i class="fas fa-brain"></i></div>
+        <div>
+            <b>DSA Instructor AI</b><br>
+            <small>Ask anything about DSA</small>
+        </div>
     </div>
 </header>
 
-<div id="chat"></div>
-<div id="typing">AI is typing...</div>
+<div id="chat">
+    <div style="text-align:center;opacity:0.6;">Ask your first question 🚀</div>
+</div>
+
+<div class="typing" id="typing">AI is typing...</div>
 
 <footer>
     <input id="input" placeholder="Ask DSA question...">

@@ -18,8 +18,14 @@ function addMsg(text, type){
 }
 
 async function send(){
+
+    console.log("SEND FUNCTION TRIGGERED");
+
     const text = input.value.trim();
     if(!text) return;
+
+    sendBtn.disabled = true;
+    input.disabled = true;
 
     addMsg(text,"user");
     input.value="";
@@ -33,16 +39,13 @@ async function send(){
                 contents: [{ parts: [{ text }] }],
                 systemInstruction: {
                     parts: [{
-                        text: `
-You are a Data Structures and Algorithms Instructor.
-
-Rules:
-- Only answer DSA questions
-- Explain simply
-- Give examples
-- Provide code
-- Include complexity
-`
+                        text: `You are a Data Structures and Algorithms Instructor.
+                                Rules:
+                                - Only answer DSA questions
+                                - Explain simply
+                                - Give examples
+                                - Provide code
+                                - Include complexity`
                     }]
                 }
             })
@@ -58,9 +61,16 @@ Rules:
     }
 
     typing.style.display="none";
+    sendBtn.disabled = false;
+    input.disabled = false;
+    input.focus(); 
 }
 
 sendBtn.addEventListener("click", send);
-input.addEventListener("keypress", e => {
-    if(e.key === "Enter") send();
+
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        send();
+    }
 });
