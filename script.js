@@ -20,7 +20,6 @@ function addMsg(text, type){
 async function send(){
 
     console.log("SEND FUNCTION TRIGGERED");
-
     const text = input.value.trim();
     if(!text) return;
 
